@@ -22,6 +22,7 @@ public class Customer {
     private String lastName;
     private String documentType;
     private String documentNumber;
+    private String email;
     private String address;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "customerId")
