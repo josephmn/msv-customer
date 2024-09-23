@@ -17,6 +17,7 @@ public class CustomerMapper {
                 .documentType(dto.getDocumentType())
                 .documentNumber(dto.getDocumentNumber())
                 .address(dto.getAddress())
+                .email(dto.getEmail())
                 .phones(dto.getPhones().stream().map(PhoneMapper::toEntity).collect(Collectors.toList()))
                 .build();
     }
@@ -32,6 +33,7 @@ public class CustomerMapper {
                 .documentType(entity.getDocumentType())
                 .documentNumber(entity.getDocumentNumber())
                 .address(entity.getAddress())
+                .email(entity.getEmail())
                 .phones(entity.getPhones().stream().map(PhoneMapper::toDTO).collect(Collectors.toList()))
                 .build();
     }
