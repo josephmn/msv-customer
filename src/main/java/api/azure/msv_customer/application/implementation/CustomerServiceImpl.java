@@ -3,18 +3,14 @@ package api.azure.msv_customer.application.implementation;
 import api.azure.msv_customer.application.dto.CustomerDTO;
 import api.azure.msv_customer.application.mapper.CustomerMapper;
 import api.azure.msv_customer.application.mapper.PhoneMapper;
-import api.azure.msv_customer.domain.entities.Customer;
 import api.azure.msv_customer.domain.repositories.CustomerRepository;
 import api.azure.msv_customer.domain.services.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
