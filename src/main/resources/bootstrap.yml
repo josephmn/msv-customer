@@ -9,6 +9,35 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER:http://localhost:8888}
+
+    # HashiCopr Vault Version 1 - Configuracion simple
+#    vault:
+#      application-name: msv-customer
+#      host: localhost
+#      port: 8200
+#      scheme: http
+#      authentication: TOKEN
+#      token: 00000000-0000-0000-0000-000000000000
+
+    # HashiCopr Vault Version 2 - Vault usa {spring.application.name}/{spring.profiles.active}, para buscar
+    # las credenciales en esta ruta: secret/msv-customer/prod <-- esa ruta debe existir dentro de HashiCopr Vault
+    # secret <-- se configura en kv:backend
+    vault:
+      enabled: true
+      host: ${VAULT_HOST:localhost}
+      port: ${VAULT_PORT:8200}
+#      uri: http://${VAULT_HOST:localhost}:${VAULT_PORT:8200}       # Podemos separar la uri por host y port
+      scheme: http
+      authentication: TOKEN # Tipo de autenticación que usarás (token, AppRole, etc.)
+      token: 00000000-0000-0000-0000-000000000000 # Reemplaza con tu token de root
+      kv:
+        enabled: true
+        backend: secret # El nombre de tu backend de secretos
   output:
     ansi:
       enabled: ALWAYS
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: all
